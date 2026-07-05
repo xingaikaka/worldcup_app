@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../data/worldcup_data.dart';
 import '../models/worldcup.dart';
 import '../theme/app_theme.dart';
+import '../widgets/country_badge.dart';
 import 'edition_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -230,8 +231,8 @@ class _EditionCard extends StatelessWidget {
                           ),
                         ),
                         child: Center(
-                          child: Text(edition.hostFlag,
-                              style: const TextStyle(fontSize: 36)),
+                          child: Icon(Icons.public_rounded,
+                              size: 36, color: Colors.white.withValues(alpha: 0.8)),
                         ),
                       ),
                     ),
@@ -262,11 +263,13 @@ class _EditionCard extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Text(edition.host,
-                            style: AppTheme.title(size: 14)),
-                        const Spacer(),
-                        Text(edition.hostFlag,
-                            style: const TextStyle(fontSize: 18)),
+                        Expanded(
+                          child: Text(edition.host,
+                              style: AppTheme.title(size: 14),
+                              overflow: TextOverflow.ellipsis),
+                        ),
+                        const SizedBox(width: 6),
+                        CountryBadge(flag: edition.hostFlag, fontSize: 10),
                       ],
                     ),
                     const SizedBox(height: 6),

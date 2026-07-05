@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/worldcup.dart';
 import '../theme/app_theme.dart';
+import '../widgets/country_badge.dart';
 import 'matches_screen.dart';
 
 class EditionScreen extends StatelessWidget {
@@ -108,9 +109,8 @@ class EditionScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(edition.hostFlag,
-                            style: const TextStyle(fontSize: 28)),
-                        const SizedBox(height: 4),
+                        CountryBadge(flag: edition.hostFlag, fontSize: 12),
+                        const SizedBox(height: 6),
                         Text(
                           '${edition.year} FIFA世界杯',
                           style: AppTheme.title(size: 22),
@@ -427,7 +427,7 @@ class _TeamRow extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text(team.flag, style: const TextStyle(fontSize: 22)),
+              CountryCircle(flag: team.flag, size: 36),
               const SizedBox(width: 8),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
